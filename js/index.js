@@ -42,3 +42,9 @@ const onSaveNote = function (e) {
   onClearNote(e);
   renderNotes(arrayOfNotes);
 }
+
+// Assigning event listeners
+
+noteForm.addEventListener('submit', onFormSubmit);
+saveNoteButton.addEventListener('click', onSaveNote);
+clearFormButton.addEventListener('click', onClearNote);
