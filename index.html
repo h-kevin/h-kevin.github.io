@@ -18,6 +18,45 @@
   <!-- Header -->
   <h1 class="header">Notes</h1>
 
+  <!-- Notes section -->
+  <div class="notes-section"></div>
+
+  <!-- Form section -->
+  <div class="form-section">
+    <form class="note-form">
+      <div class="form-actions">
+        <button
+          type="button"
+          class="clear-form"
+        >
+          Clear
+        </button>
+        <button
+          type="submit"
+          class="save-note"
+        >
+          Save
+        </button>
+      </div>
+      <div class="form-group">
+        <input
+          class="title"
+          name="title"
+          type="text"
+          placeholder="Title"
+        />
+      </div>
+      <div class="form-group">
+        <textarea
+          class="description"
+          name="description"
+          placeholder="Type something..."
+          rows="5"
+        ></textarea>
+      </div>
+    </form>
+  </div>
+
   <!-- Scripts -->
   <script src="./js/index.js"></script>
 </body>
