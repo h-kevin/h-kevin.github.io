@@ -71,7 +71,7 @@ const renderNotes = function () {
     return renderNoteCard(note);
   });
 
-  notesSection.append(...notes);
+  notesSection.replaceChildren(...notes);
 }
 
 // Execution
