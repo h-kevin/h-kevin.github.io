@@ -33,6 +33,16 @@ const getRandomColorFromArray = function (array) {
   }
 }
 
+const deleteNoteFromArrayOfNotes = function (noteKey) {
+  const index = arrayOfNotes.findIndex(function (note) {
+    return note.key === noteKey;
+  })
+
+  if (index !== -1) {
+    arrayOfNotes.splice(index, 1);
+  }
+}
+
 // Event handlers
 
 const onFormSubmit = function (e) {
@@ -55,16 +65,28 @@ const onSaveNote = function (e) {
   if (title === '' || description === '') {
     return;
   } else {
+    const color = getRandomColorFromArray(cardColors);
+    const creationDate = new Date();
+    const key = creationDate.getTime();
+
     arrayOfNotes.push({
+      key,
       title,
       description,
-      color: getRandomColorFromArray(cardColors),
+      color,
     });
   }
 
   onClearNote(e);
   renderNotes(arrayOfNotes);
 }
+
+const onDeleteNote = function (e, noteKey) {
+  e.preventDefault();
+
+  deleteNoteFromArrayOfNotes(noteKey);
+  renderNotes(arrayOfNotes);
+};
 
 // Assigning event listeners
 
@@ -78,6 +100,7 @@ const renderNoteCard = function (noteData) {
   const noteCard = document.createElement('div');
   const noteHeader = document.createElement('h3');
   const noteDescription = document.createElement('p');
+  const noteDeleteButton = document.createElement('button');
 
   noteCard.classList.add('note-card');
   noteCard.style.backgroundColor = noteData.color;
@@ -85,7 +108,13 @@ const renderNoteCard = function (noteData) {
   noteHeader.textContent = noteData.title;
   noteDescription.classList.add('description');
   noteDescription.innerHTML = noteData.description?.replace(/\n/g, '<br />');  
-  noteCard.append(noteHeader, noteDescription);
+  noteDeleteButton.classList.add('delete-button');
+  noteDeleteButton.textContent = 'Delete'
+  noteDeleteButton.addEventListener('click', function (e) {
+    onDeleteNote(e, noteData.key);
+  })
+  
+  noteCard.append(noteHeader, noteDescription, noteDeleteButton);
 
   return noteCard;
 };
