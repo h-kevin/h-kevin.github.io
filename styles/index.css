@@ -42,10 +42,18 @@ body {
   flex: 25%;
   display: flex;
   flex-flow: column nowrap;
-  background-color: #3f4246;
   border-radius: 10px;
   padding: 15px;
   gap: 15px;
+  color: #252525;
+}
+
+.note-card .header {
+  font-size: 150%;
+}
+
+.note-card .description {
+  margin: 0;
 }
 
 .form-section {
