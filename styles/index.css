@@ -7,4 +7,40 @@ body {
   font-family: 'Merienda-Regular';
   font-size: 16px;
   margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Container */
+body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: max-content auto max-content;
+  gap: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #252525;
+  color: #fff;
+}
+
+/* Content */
+.header {
+  margin: 0;
+  font-size: 200%;
+}
+
+@media screen and (max-width: 991px) {
+
+  html,
+  body {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  html,
+  body {
+    font-size: 12px;
+  }
 }
