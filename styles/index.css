@@ -57,6 +57,23 @@ body {
   margin: 0;
 }
 
+.note-card .delete-button {
+  font-family: inherit;
+  font-size: inherit;
+  color: #fff;
+  margin-top: auto;
+  align-self: flex-start;
+  background-color: #252525;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.note-card .delete-button:hover {
+  opacity: .8;
+}
+
 .form-section {
   position: relative;
   padding: 15px;
