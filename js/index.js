@@ -36,7 +36,7 @@ const getRandomColorFromArray = function (array) {
 const deleteNoteFromArrayOfNotes = function (noteKey) {
   const index = arrayOfNotes.findIndex(function (note) {
     return note.key === noteKey;
-  })
+  });
 
   if (index !== -1) {
     arrayOfNotes.splice(index, 1);
@@ -57,8 +57,6 @@ const onClearNote = function (e) {
 }
 
 const onSaveNote = function (e) {
-  e.preventDefault();
-
   const title = titleInput.value;
   const description = descriptionInput.value;
 
@@ -112,16 +110,16 @@ const renderNoteCard = function (noteData) {
   noteDeleteButton.textContent = 'Delete'
   noteDeleteButton.addEventListener('click', function (e) {
     onDeleteNote(e, noteData.key);
-  })
+  });
   
   noteCard.append(noteHeader, noteDescription, noteDeleteButton);
 
   return noteCard;
 };
 
-const renderNotes = function () {
-  const notes = arrayOfNotes.map(function (note) {
-    return renderNoteCard(note);
+const renderNotes = function (metaDataArray) {
+  const notes = metaDataArray.map(function (noteMetaData) {
+    return renderNoteCard(noteMetaData);
   });
 
   notesSection.replaceChildren(...notes);
